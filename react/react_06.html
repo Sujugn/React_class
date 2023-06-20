@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react_06 class</title>
+
+<!--    //REACT -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+
+<!-- //BABEL jsx(자바스크립트 확장문법)-->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+<!-- Your custom script here -->
+<script type="text/babel" defer>
+
+const rootElement = document.getElementById('root')
+
+/*
+    const Mycomponent = () =>{
+        return(
+            <h1>Hello,React!</h1>
+        )
+    }
+*/
+
+/*
+class Mycomponent extends React.Component {
+    render(){
+        return(
+            <h1>Hello, React!!!</h1>
+        )
+    }   
+}
+*/
+
+/*
+function Greet(props){
+    return(
+        <h1>{props.greet} React</h1>
+    )
+}
+Greet.defaultProps ={
+    greet: 'Hi~~~'
+}
+*/
+
+
+class Greet extends React.Component{
+    render(){
+        return(
+            <h1>{this.props.greet} React</h1>
+        )
+    }//return으로돌릴값은 render안에 넣어주기
+
+    static defaultProps = {
+        greet: 'Hello~'
+    }//내부에서 값 정해줄때 static 함수사용
+    //props: 컴포넌트 외부에서 컴포넌트를 사용할때 넘겨주는 데이터 => props의 객체데이터형식으로 넘겨줌
+    //static: 컴포넌트 내부에서 변경할 수 있는 컴포넌트 내부의 값 => 새로운 값을 생성 
+
+
+}
+
+
+
+ReactDOM.render(<Greet />, rootElement)
+</script>
+
+
+
+</head>
+<body>
+
+    <div id="root"></div>
+    
+</body>
+</html>

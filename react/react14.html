@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!--    //REACT -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+
+<!-- //BABEL jsx(자바스크립트 확장문법)-->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+<!-- Your custom script here -->
+<script type="text/babel" defer>
+
+const rootElement = document.getElementById('root')
+
+//데이터추가
+
+const Season = () =>{
+    
+    const [names, setNames] =React.useState([
+        {id: 1, seasons: 'spring'},
+        {id: 2, seasons: 'summer'},
+        {id: 3, seasons: 'autumn'},
+        {id: 4, seasons: 'winter'},
+])
+
+const[nextId, setNextId] = React.useState(5)
+const [input, setInput] = React.useState('')
+
+const handleChange = (e) => setInput(e.target.value)
+const handleClick = () => {
+    const nextName = names.concat({
+        id: nextId,
+        season: input
+    })
+
+    setNextId(nextId + 1)
+    setNames(nextName)
+    setInput('')
+}
+
+const nameList = names.map(name => <li key = {name.id}>{name.season}</li>)
+
+return(
+    <>
+    <input type="text" value={input} onChange={handleChange} />
+    <button onClick={handleClick}>추가</button>
+    <ul>{nameList}</ul>
+    </>
+)
+
+
+
+
+}//season
+//concat:배열과 배열을 합칠때 사용하는 함수
+
+
+ReactDOM.render(<Season />, rootElement)
+</script>
+
+
+
+</head>
+<body>
+
+    <div id="root"></div>
+    
+</body>
+</html>

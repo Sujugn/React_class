@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!--    //REACT -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+
+<!-- //BABEL jsx(자바스크립트 확장문법)-->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+<!-- Your custom script here -->
+<script type="text/babel" defer>
+
+const rootElement = document.getElementById('root')
+
+// class Counter extends React.Component {
+
+//     state ={
+//         count:0
+//     }
+
+//     redner (){
+//         return(
+//         <>
+//         <h1>{this.state.count}</h1>
+//         <button onclick={
+//             () => this.setState{{count: this.state.count + 1}
+//         }>Click</button>
+
+//         </>
+//         )
+//     }
+
+
+// }
+
+
+/*
+const Counter = () => {
+
+    const [count, setCount] = React.useState(0) //현재상태,상태변경 setter함수
+    //count 이름 변경가능 , 뒤에 set은 붙여주기 
+    const handleClick = () => setCount(count +1)
+    
+    return(
+        <>
+        <h1>{count}</h1>
+        <button onClick= {handleClick}>Click</button>
+        </>
+)
+}
+*/
+
+/*
+const Counter = () => {
+    const[count,setCount] = React.useState(0)
+
+    return(
+        <div>
+            <h1>{count}</h1>
+            <button onClick={()=>{setCount+ 1}}>증가</button>
+            <button onClick={()=>{setCount-1}}>감소</button>
+        </div>
+    )
+}
+ReactDOM.render(<Counter />, rootElement)
+*/
+
+//INTRO
+
+const Intro = () => {
+
+const[message, setMessage] = React.useState('홍길동의 누리집입니다.') //usestate: 초기값
+const handleEnter = ( ) => setMessage('방문을 환영합니다.')
+const handleleave = ()=>setMessage('다음에 다시 방문해 주세요~')
+const [color,setColor] = React.useState('black')
+
+return(
+    <div>
+    <button onClick={handleEnter}>입장</button>
+    <button onClick={handleleave}>퇴장</button>
+    <h1 style={{color}}>{message}</h1>
+
+    <button className='btn' style={{backgroundColor: 'red', color: 'white'}} onClick={() => setColor('red')}>빨강</button>
+    <button className='btn' style={{backgroundColor: 'blue', color: 'white'}} onClick={() => setColor('blue')}>파랑</button>
+    <button className='btn' style={{backgroundColor: 'green', color: 'white'}} onClick={() => setColor('green')}>초록</button>
+
+    </div>
+)//style은 객체라서 중괄호 안에 적어야함
+
+
+
+
+}
+ReactDOM.render(<Intro />, rootElement)
+
+
+</script>
+
+
+<style>
+
+.btn{
+    cursor: pointer;
+    width: 100px; height: 100px;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+</head>
+<body>
+
+    <div id="root"></div>
+
+
+
+
+
+</body>
+</html>

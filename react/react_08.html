@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!--    //REACT -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+
+<!-- //BABEL jsx(자바스크립트 확장문법)-->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+<!-- Your custom script here -->
+<script type="text/babel" defer>
+
+const rootElement = document.getElementById('root')
+
+
+/*
+function Mycomponent (){
+    const name = 'React'
+    return <div className='title'>{name}</div>
+}
+*/
+
+/*
+class Mycomponent extends React.Component{
+    render(){
+        const name = 'Javascript'
+        return <div className='title'>{name}</div>   
+    }
+}
+*/
+
+/*
+class Mycomponent extends React.Component{
+    redner(){
+
+        const {myClass, subject, name} = this.props
+
+        return(
+            <div>
+                교육과정 : {myClass}<br />
+                교육과목 : {subject}<br />
+                교육생 : {name}
+            </div>
+        )
+    }//render()
+
+    static defaultProps = {
+        myClass: 'Frond_End',
+        subject: 'React',
+        name: 'student'
+    }
+
+}
+//class는 객체를 받을때 반드시 this로 받아야한다
+
+//ReactDOM.render(<Mycomponent myClass='Front_End' subject='React' name='Lee'/>, rootElement)
+ReactDOM.render(<Mycomponent/>, rootElement)
+*/
+
+
+class Counter extends React.Component{
+
+        constructor (props){
+            super(props)
+            this.state = {
+                count: 0,
+                count02: 1
+            }//state: 부모에게 상속X
+        }
+
+        render(){
+            const{count, count02}=this.state
+
+            return (
+                <div>
+                    <h1>{count}</h1>
+                    <h2>{count02}</h2>
+                    <button
+                    onClick={()=>{
+                    this.setState({count: count+1},
+                    () => {this.setState({count02: count02+2})}
+                    )//callback
+                    }}
+                    >Click!</button>
+                </div>
+            )
+        }//render
+    }//Counter component
+
+
+
+ReactDOM.render(<Counter/> , rootElement)
+</script>
+
+
+
+</head>
+<body>
+
+    <div id="root"></div>
+    
+</body>
+</html>

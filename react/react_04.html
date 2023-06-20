@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react_04</title>
+
+ <!--    //REACT -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+
+<!-- //BABEL jsx(자바스크립트 확장문법)-->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+<!-- Your custom script here -->
+<script type="text/babel" defer>
+
+
+
+const rootElement = document.getElementById('root')
+
+const Greet = ({first,second, children}) => (
+    <>
+    <h1>{first}</h1>
+    <h2>{second}</h2>
+    {children}
+    </>
+)
+/*
+const elemnet = (
+    <>
+    <Greet first='Good' second='Morning~'>Hi</Greet>
+
+    <Greet first='Bed' second='Afternoon!'>
+        <span>Hello</span>
+    </Greet>
+
+    <Greet first='Happy' second='Evening~'>
+        <div>night</div>
+        <div>night</div>
+        <div>night</div>
+    </Greet>
+
+    <Greet first= 'Deep' second='Sleeping...'>
+        <Greet first='Dream' second='World'/>
+    </Greet>
+    </>
+)
+*/
+
+
+
+const Good = () => <h3 className='good'>Good</h3>
+
+const element = (
+    <>
+    <Greet first='good' second='Morning~'>
+        <Good />
+        <Good />
+        <Good />
+        <Good />
+        <Good />
+    </Greet>
+    </>
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ReactDOM.render(element, rootElement)
+</script>
+</head>
+<body>
+
+    <div id="root"></div>
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

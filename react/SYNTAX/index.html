@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        React
+    </title>
+
+ <!--    //REACT -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+
+<!-- //BABEL jsx(자바스크립트 확장문법)-->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+<!-- Your custom script here -->
+<script type="text/babel" defer>
+
+/*
+    const rootElement = document.getElementById('root')
+    const h1 = document.createElement('h1')
+
+    h1.setAttribute('className', 'title')
+    h1.textContent = 'Hello, React'
+
+    rootElement.appendChild(h1)
+*/
+
+    const rootElement = document.getElementById('root')
+
+    //React.createElement(component(태그), props, ...children)
+    //(1) React.createElemnet('component',{children})
+   // const element = React.createElement('h1',{children:'Hello'})
+
+
+   //(2) React.createElement('component', props, 'childeren')
+   //const element = React.createElement('h1', null, 'React~')
+
+   //(3) React.createElemnt('component', props, ['children', 'children' ])
+   //const element = React.createElemnet('h1', null ['Hello', 'React'])
+
+    /*
+    const element = React.createElement(
+        'h1',
+        {
+            className: 'title',
+            //children: 'Hello, React~'
+            children: ['Hello', 'Bye, Javascript']
+            //줄바꾸기 태그 사용안됨
+        }
+    )
+    ReactDOM.render(element, rootElement)
+    //render:화면에 뿌림 
+    */
+
+
+    //render ing시 최종 DOM 하나만 추가(=>Fragment)
+    /* const element01 = React.createElement('div', null, 'Hello,React')
+    const element02 = React.createElement('p',null, 'Bye,Javascript')
+
+
+    ReactDOM.render(element01, rootElement)
+    ReactDOM.render(element02, rootElement)
+    */
+
+   //JSX : 자바스크립트 확장 문법 / BABEL compiler(Transpiler)
+
+   //const element = <h1<className='title'>Hello,React!<h1>
+
+
+    const text = 'Hello, React'
+    const userClassName = 'title'
+    //const element = <h1 className={userClassName}{text}></h1>
+    //const element =<h1 className={userClassName} children{text}></h1>
+    //const element = <h1 className={userClassName} children={text} />
+
+
+    //객체처리 제일많이사용
+    const props = {
+        className: userClassName,
+        children: text
+    }
+
+   // const element = <h1 className={props.className} children={props.children}/>
+    const element = <h1 {...props}/>
+
+    ReactDOM.render(element, rootElement)
+
+</script>
+
+
+
+
+</head>
+<body>
+    <div id="root"></div>
+    
+</body>
+</html>

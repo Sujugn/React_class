@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react_02</title>
+
+    <script>
+        const rootElement = document.getElementById('root')
+
+
+        /*
+        const userClassName = 'title'
+        const text = 'Hello, React~'
+
+
+
+        const props = {
+            ClassName: userClassName,
+            children: text
+        }
+
+        const element = <h1 className={props.ClassName} children={props.children}/>
+        */
+
+        //const element = <h1 ClassName='title childeren={React.createElemen('span',null,'Hello,Javascript!')}/>
+
+
+        /*
+        const element =(
+            <div
+                className='title'
+                children={[
+                   // React.createElement('span', null, 'Hello, React~'),
+                   // React.createElement('br', null, 'Hello, React~'),
+                   // React.createElement('span', null, 'Bye, Javascript'),
+
+                    <span className= 'txt'>Hello,React~</span>,
+                    <br />,
+                    <span children='Bye, Javascript!!!!!!' />
+                ]
+                }
+            />
+       */
+
+
+        /*   const element = (
+
+            <React.Fragment 
+            children = {[
+                <span className = 'txt' > Hello, React~ </span>, 
+                <br /> ,
+                <span children = 'Bye, Javascript!!!!!!' />
+                ]}
+            />
+        )*/
+
+
+        /* const element = (
+            <React.Fragment>
+                //랜더링을 위해서 하나로 묶어서 넘겨주는 태그 (실질적인 태그가 아니라서 자식태그 존재X 콤마사용 X)
+                <span className = 'txt' > Hello, React~~~~~~~ </span> 
+                <br /> 
+                <span children = 'Bye, Javascript!!!!!!' />
+            </React.Fragment>
+        )*/
+
+
+
+        const element =(
+        <>
+            //Fragment 마크업 기호
+            <span className = 'txt' > Hello, React~~~~~~~ </span> 
+            <br /> 
+            <span children = 'Bye, Javascript!!!!!!' />
+        </>
+        )
+        
+
+
+
+
+
+        ReactDOM.render(element, rootElement)
+    </script>
+
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--    //REACT -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+
+    <!-- //BABEL jsx(자바스크립트 확장문법)-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+    <!-- Your custom script here -->
+    <script type="text/babel" defer>
+
+        const rootElement = document.getElementById('root')
+
+
+const Info = () => {
+
+    // const [name,setName] = React.useState('')
+    // const [age, setAge] = React.useState('')
+
+    // const handleChangeName = (e) => {
+    //     setName(e.target.value)
+    //     //입력들어오는값으로 이름 변경
+    // }
+
+    // const handleChangeAge = (e) => {
+    //     setAge(e.target.value)
+    // }
+
+    // return(
+    // <>
+    //     <div>
+    //         name: <input type="text" value={name} onChange={handleChangeName}/> <br />
+    //         age: <input type="text" value={age} onChange={handleChangeAge}/>
+    //     </div>
+
+    //     <h1>Name : {name}</h1>
+    //     <h2>Age : {age}</h2>
+    // </>
+
+
+    // )//info
+}//info
+
+//배열로 받을려면 모든속성이같아야함 
+//속성이다르면 객체로 받기
+// ★ ...state :여러개의데이터를 통째로 복사해서 저장
+
+const [state, setState] =React.useState({name:'',age:''})
+return(
+    <>
+    <div>
+    name : <input type="text" value={state.name} onChange={
+        (e) => setState({...state, name: e.target.value})}/>
+
+    age : <input type="text" value={state.age} onChange={
+        (e) => setState({...state, age: e.target.value})}/>
+
+    </div>
+
+    <h1>Name : {state.name}</h1>
+    <h2>Age : {state.age}</h2>
+    </>
+)
+
+ReactDOM.render(<Info />, rootElement)
+</script>
+
+
+
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+</body>
+
+</html>
